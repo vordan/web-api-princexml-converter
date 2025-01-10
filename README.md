@@ -144,7 +144,7 @@ Using curl:
 
 ```bash
 # Convert HTML file
-curl -X POST http://localhost:7171/convert \
+curl -X POST http://<server-ip>:7171/convert \
   -H "Content-Type: application/json" \
   -d '{
     "htmlFile": "/path/to/input.html",
@@ -152,14 +152,14 @@ curl -X POST http://localhost:7171/convert \
   }'
 
 # Convert HTML content
-curl -X POST http://localhost:7171/convert \
+curl -X POST http://<server-ip>:7171/convert \
   -H "Content-Type: application/json" \
   -d '{
     "htmlContent": "<html><body><h1>Test</h1></body></html>"
   }'
 
 # Get help
-curl http://localhost:7171/help
+curl http://<server-ip>:7171/help
 ```
 
 Using Node.js:
@@ -170,7 +170,7 @@ const fs = require('fs');
 
 async function convertToPdf() {
     try {
-        const response = await axios.post('http://localhost:7171/convert', {
+        const response = await axios.post('http://<server-ip>:7171/convert', {
             htmlContent: '<html><body><h1>Test</h1></body></html>'
         }, {
             responseType: 'arraybuffer'
